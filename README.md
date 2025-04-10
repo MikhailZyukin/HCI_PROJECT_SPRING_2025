@@ -18,5 +18,5 @@ For younger age groups more simple games are to be implemented such as emotional
 
 - [LITERATURE_REVIEW](RESLIT/LITREV.md)
 - [BIBLIOGRAPHY](RESLIT/BIBLIOGRAPHY.md)
-- [RESEARCH_PHASES](PHMENU.md)
+- [RESEARCH_PHASES](PHAZE/PHMENU.md)
 
