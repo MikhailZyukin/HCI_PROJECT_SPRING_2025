@@ -1,7 +1,6 @@
 # EMOTIONAL INTELLEGENCE APPLICATION
 
-## The goal of our project is to assist 
-children struggling with emotional intelligence.
+## The goal of our project is to assist children struggling with emotional intelligence.
 
 - Emotional intelligence is imperative for a brighter future 
 and it is our responsibility to enlighten the younger generation on its importance,
