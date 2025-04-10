@@ -29,3 +29,5 @@ through both positive and negative affect. Children who can understand and regul
 less likely to exhibit reactive or proactive aggression. The authors highlight that EI enhances resilience, helping
 children manage negative emotions in constructive ways. This underscores the potential of emotionally focused
 interventions—including games and digital apps—as preventive tools for emotional and behavioral issues.
+
+- [BACK](../README.md)

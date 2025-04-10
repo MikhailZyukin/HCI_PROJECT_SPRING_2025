@@ -15,3 +15,5 @@
 - Zhang, L., Zhou, H., & Chen, Y. (2022). Cultural variations in emotion regulation and its effects on parent-child relationships. Psychology Research and Behavior Management, 15, 123–137. https://prc.springeropen.com/articles/10.1186/s41155-022-00216-0
 
 - Zhou, Q., Eisenberg, N., & Wang, Y. (2020). Parent–child interaction and children's emotional development: The mediating role of emotion regulation. Journal of Family Psychology, 34(1), 102–112. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8998041/
+
+- [BACK](../README.md)

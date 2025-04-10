@@ -13,3 +13,5 @@
 - Performance: Fast loading time over average internet speeds
 - Security & Privacy: Compliance with COPPA, GDPR for child data protection
 - Scalability: Capable of handling multiple user sessions simultaneously
+
+- [BACK](../README.md)
