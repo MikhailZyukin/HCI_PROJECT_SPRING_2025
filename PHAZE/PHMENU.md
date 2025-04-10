@@ -1,4 +1,25 @@
 # RESEARCH PHASE SELECTION
 
-- [PHASE 1.1](PHAZE/POINTONE.md)
-- [PHASE 1.2](PHAZE/POINTTWO.md)
+- [PHASE 1.1](POINTONE.md)
+- [PHASE 1.2](POINTTWO.md)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- [BACK](../README.md)
