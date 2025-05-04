@@ -8,7 +8,7 @@
 - Joint session feedback input for both users
 
 ### Tools Used:
-- **Figma** and **React.js** (see `/src/` directory)
+- **React.js** (see `/src/` directory)
 - Design assets and screenshots to be added in `/RESULT/`
 
 ### User Feedback Integration:
