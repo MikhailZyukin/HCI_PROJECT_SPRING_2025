@@ -2,8 +2,10 @@
 
 - [PHASE 1.1](POINTONE.md)
 - [PHASE 1.2](POINTTWO.md)
-
-
+- [PHASE 1.3](POINTTHREE.md)
+- [PHASE 2.1](2POINTONE.md)
+- [PHASE 2.2](2POINTTWO.md)
+- [PHASE 2.3](2POINTTHREE.md)
 
 
 
