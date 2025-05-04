@@ -1,4 +1,4 @@
-#RESEARCH PHASE 2.1 Usability Goals
+# RESEARCH PHASE 2.1 Usability Goals
 
 - **Learnability:** New users (children or parents) can understand navigation within 1–2 minutes.
 - **Efficiency:** Children complete tasks in under 3 steps; parents find information in under 5 seconds.

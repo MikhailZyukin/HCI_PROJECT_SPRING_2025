@@ -1,4 +1,4 @@
-#RESEARCH PHASE 2.3 System Design / Prototype
+# RESEARCH PHASE 2.3 System Design / Prototype
 
 ### Horizontal Prototype:
 - Main screens: Welcome, Login, Child Dashboard, Game Interface, Parent Dashboard, Joint Session
