@@ -1,13 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import "./App.css";
 
 function App() {
   return (
-    <div className='App'>
-      <h1>Hello React.</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        {/* Add other routes here later */}
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+
