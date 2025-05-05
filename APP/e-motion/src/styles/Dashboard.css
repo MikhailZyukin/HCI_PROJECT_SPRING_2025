@@ -1,0 +1,36 @@
+.dashboard {
+  display: flex;
+  background-color: var(--background);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: var(--secondary);
+  padding: 1rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.main-panel {
+  flex: 1;
+  padding: 2rem;
+}
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.placeholder {
+  height: 150px;
+  background-color: #eee;
+  border-radius: 8px;
+}
+

@@ -1,0 +1,28 @@
+.home-container {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.logo {
+  width: 150px;
+  margin-bottom: 1.5rem;
+}
+
+.home-buttons button {
+  margin: 1rem;
+  background-color: var(--primary);
+  color: white;
+}
+
+.home-buttons button:hover {
+  background-color: var(--accent);
+}
+
+.help-link {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
