@@ -21,4 +21,4 @@ For younger age groups more simple games are to be implemented such as emotional
 
 ## SOURCE-CODE / DEVELOPEMENT- MATERIAL
 
-- [SOURCE_CODE](emotion)
+- [SOURCE_CODE](APP/emotion)
