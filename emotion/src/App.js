@@ -1,6 +1,7 @@
-import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-export function App(props) {
+function App() {
   return (
     <div className='App'>
       <h1>Hello React.</h1>
@@ -9,5 +10,4 @@ export function App(props) {
   );
 }
 
-// Log to console
-console.log('Hello console')
+export default App;
