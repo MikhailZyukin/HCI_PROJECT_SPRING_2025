@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+const Log0 = {
+  imageUrl: process.env.PUBLIC_URL + '/emotionLogo.png',
+  imageSize:180,
+};
+
+export default function Logo() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <img
+    classname="LogoType"
+    src={Log0.imageUrl}
+    alt="Logo1"
+    style={{
+      width: Log0.imageSize,
+      height: Log0.imageSize,
+    }}
+    />
+  </>
   );
 }
-
-export default App;
