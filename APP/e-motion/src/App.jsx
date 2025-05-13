@@ -1,15 +1,17 @@
-import { useState } from 'react'
-//import { Button } from 'react-bootstrap'
-import './App.css'
+// src/App.jsx
+import { Routes, Route } from 'react-router-dom';
+import './App.css';
+//import Home from './pages/Home';
+import ParentLogin from './pages/ParentLogin.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App"> 
-      <h1>E-Motion</h1>
+    <div className="App">
+      <Routes>
+        <Route path="/parent-login" element={<ParentLogin/>} />
+      </Routes>
     </div>
-  )
-} 
+  );
+}
 
-export default App    
+export default App;

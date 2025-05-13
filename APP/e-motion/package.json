@@ -12,8 +12,11 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.6",
+    "firebase": "^11.7.1",
+    "firebase-tools": "^14.3.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.0",
     "sass": "^1.88.0"
   },
   "devDependencies": {
