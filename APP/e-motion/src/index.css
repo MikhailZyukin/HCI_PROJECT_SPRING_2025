@@ -11,6 +11,13 @@ html, body, #root {
   scrollbar-gutter: stable;
 }
 
+
+.orangeElement {
+  background-color: #FF7A23;
+  color: white;
+  border: none;
+}
+
 .orangeButton {
   background-color: #FF7A22;
   color: white;
