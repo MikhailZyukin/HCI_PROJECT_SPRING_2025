@@ -51,7 +51,7 @@ export default function Home() {
                 <Link to="/features" onClick={closeMenu} className="btn text-white">
                 Features
                 </Link>
-                <Link to="/parent-login" onClick={closeMenu} className="btn text-white">
+                <Link to="/login" onClick={closeMenu} className="btn text-white">
                   Login / Sign Up
                 </Link>
               </div>
@@ -75,7 +75,7 @@ export default function Home() {
               </li>
             </ul>
             <Link
-              to="/parent-login"
+              to="/login"
               onClick={closeMenu}
               className="btn text-white rounded-pill orangeButton d-none d-lg-block"
             >

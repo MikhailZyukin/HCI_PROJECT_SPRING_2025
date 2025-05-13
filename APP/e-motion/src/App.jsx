@@ -2,18 +2,23 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home.jsx';
-import ParentLogin from './pages/Login.jsx';
+import Login from './pages/Login.jsx';
 import Features from './pages/Features.jsx';
 import About from './pages/About.jsx';
+import Signup from './pages/Signup.jsx';
+
 
 function App() {
   return (
     <div className="App">
       <Routes>
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/about" element={<About />} />
         <Route path="/features" element={<Features />} />
-        <Route path="/" element={<Home/>} />
-        <Route path="/parent-login" element={<ParentLogin/>} />
+        <Route path="/" element={<Home />} />
+        
       </Routes>
     </div>
   );
