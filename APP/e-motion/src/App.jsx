@@ -8,12 +8,16 @@ import About from './pages/About.jsx';
 import Signup from './pages/Signup.jsx';
 import ParentDashboard from './pages/ParentDashboard.jsx';
 import ChildDashboard from './pages/ChildDashboard.jsx';
+import FaceExplorer from './pages/FaceExplorer.jsx';
+import EmotionMatch from './pages/EmotionMatch.jsx';
 
 
 function App() {
   return (
     <div className="App">
       <Routes>
+        <Route path="/face-explorer" element={<FaceExplorer />} />
+        <Route path="/emotion-match" element={<EmotionMatch />} />
         <Route path="/child-dashboard" element={<ChildDashboard />} />
         <Route path="/parent-dashboard" element={<ParentDashboard />} />
         <Route path="/login" element={<Login />} />

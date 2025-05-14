@@ -1,6 +1,5 @@
-// src/pages/ChildDashboard.jsx
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 import {
   FaGamepad,
   FaChartLine,
@@ -18,45 +17,43 @@ export default function ChildDashboard() {
   const navigate = useNavigate();
   const params = new URLSearchParams(location.search);
   const childName = params.get('name') || 'Your Child';
-
   const getToday = () => new Date().toISOString().split('T')[0];
 
-  const [progress, setProgress] = useState(() => {
-    const lastDate = localStorage.getItem(`progressDate_${childName}`);
-    const today = getToday();
-    const stored = localStorage.getItem(`progress_${childName}`);
-    return lastDate === today && stored ? parseInt(stored, 10) : 0;
-  });
 
-  const [emotion, setEmotion] = useState(() => {
-    return localStorage.getItem(`emotion_${childName}`) || '';
-  });
+  // ✅ Properly define date utility
 
+  const [progress, setProgress] = useState(0);
+  const [emotion, setEmotion] = useState('');
   const [dailyGoal] = useState(100);
-  const [streak, setStreak] = useState(() => {
-    const lastDate = localStorage.getItem(`progressDate_${childName}`);
-    const storedStreak = parseInt(localStorage.getItem(`streak_${childName}`) || '0', 10);
-    return lastDate === getToday() ? storedStreak : 0;
-  });
-
+  const [streak, setStreak] = useState(0);
   const [newDayReset, setNewDayReset] = useState(false);
 
+  // ✅ Sync state with localStorage daily
   useEffect(() => {
-    const lastDate = localStorage.getItem(`progressDate_${childName}`);
     const today = getToday();
-    if (lastDate !== today) {
+    const lastDate = localStorage.getItem(`progressDate_${childName}`);
+    const storedProgress = parseInt(localStorage.getItem(`progress_${childName}`) || '0', 10);
+    const storedStreak = parseInt(localStorage.getItem(`streak_${childName}`) || '0', 10);
+    const storedEmotion = localStorage.getItem(`emotion_${childName}`) || '';
+
+    if (lastDate === today) {
+      setProgress(storedProgress);
+      setStreak(storedStreak);
+    } else {
+      // New day reset
+      setProgress(0);
+      setStreak(storedProgress >= dailyGoal ? storedStreak + 1 : 0);
+      localStorage.setItem(`progress_${childName}`, '0');
+      localStorage.setItem(`progressDate_${childName}`, today);
+      localStorage.setItem(`streak_${childName}`, storedProgress >= dailyGoal ? storedStreak + 1 : '0');
       setNewDayReset(true);
       setTimeout(() => setNewDayReset(false), 2000);
     }
-  }, []);
 
-  useEffect(() => {
-    const storedChildren = JSON.parse(localStorage.getItem('children') || '[]');
-    if (!storedChildren.includes(childName)) {
-      localStorage.setItem('children', JSON.stringify([...storedChildren, childName]));
-    }
+    setEmotion(storedEmotion);
   }, [childName]);
 
+  // ✅ Emotion select logic
   useEffect(() => {
     if (emotion) {
       const history = JSON.parse(localStorage.getItem(`emotionHistory_${childName}`) || '[]');
@@ -66,24 +63,15 @@ export default function ChildDashboard() {
     }
   }, [emotion, childName]);
 
+  // ✅ Progress logging
   useEffect(() => {
     if (progress > 0) {
       const today = getToday();
-      const progressLog = JSON.parse(localStorage.getItem(`progressHistory_${childName}`) || '[]');
-      progressLog.push({ progress, time: new Date().toLocaleString() });
-      localStorage.setItem(`progressHistory_${childName}`, JSON.stringify(progressLog));
+      const log = JSON.parse(localStorage.getItem(`progressHistory_${childName}`) || '[]');
+      log.push({ progress, time: new Date().toLocaleString() });
+      localStorage.setItem(`progressHistory_${childName}`, JSON.stringify(log));
       localStorage.setItem(`progress_${childName}`, progress);
       localStorage.setItem(`progressDate_${childName}`, today);
-
-      if (progress >= dailyGoal) {
-        const lastDate = localStorage.getItem(`progressDate_${childName}`);
-        if (lastDate !== today) {
-          const prevStreak = parseInt(localStorage.getItem(`streak_${childName}`) || '0', 10);
-          const newStreak = prevStreak + 1;
-          setStreak(newStreak);
-          localStorage.setItem(`streak_${childName}`, newStreak);
-        }
-      }
     }
   }, [progress, childName]);
 
@@ -95,10 +83,6 @@ export default function ChildDashboard() {
 
   const handleQuit = () => {
     navigate('/parent-dashboard');
-  };
-
-  const handleGameComplete = () => {
-    setProgress(prev => Math.min(prev + 10, 100));
   };
 
   const handleEmotionSelect = (selected) => {
@@ -129,10 +113,15 @@ export default function ChildDashboard() {
         <div className="col-md-4">
           <div className="p-4 bg-white rounded-4 shadow-sm border border-light-subtle">
             <h5><FaGamepad className="me-2" />Play Games</h5>
-            <button className="btn orangeButton text-white rounded-pill shadow-sm w-100 my-2" onClick={handleGameComplete}>Emotion Match</button>
-            <button className="btn orangeButton text-white rounded-pill shadow-sm w-100" onClick={handleGameComplete}>Face Explorer</button>
+            <Link to="/emotion-match" className="btn orangeButton text-white rounded-pill shadow-sm w-100 my-2">
+              Emotion Match
+            </Link>
+            <Link to="/face-explorer" className="btn orangeButton text-white rounded-pill shadow-sm w-100">
+              Face Explorer
+            </Link>
           </div>
         </div>
+
         <div className="col-md-4">
           <div className="p-4 bg-white rounded-4 shadow-sm border border-light-subtle">
             <h5><FaChartLine className="me-2" />My Progress</h5>
@@ -142,6 +131,7 @@ export default function ChildDashboard() {
             </div>
           </div>
         </div>
+
         <div className="col-md-4">
           <div className="p-4 bg-white rounded-4 shadow-sm border border-light-subtle">
             <h5><FaStar className="me-2" />Achievements</h5>
@@ -167,6 +157,7 @@ export default function ChildDashboard() {
             {emotion && <p className="mt-3 text-center">You feel <strong>{emotion}</strong> today.</p>}
           </div>
         </div>
+
         <div className="col-md-4">
           <div className="p-4 bg-white rounded-4 shadow-sm border border-light-subtle">
             <h5><FaRegCommentDots className="me-2" />Message from Parent</h5>
@@ -176,6 +167,7 @@ export default function ChildDashboard() {
             </blockquote>
           </div>
         </div>
+
         <div className="col-md-4">
           <div className="p-4 bg-white rounded-4 shadow-sm border border-light-subtle">
             <h5><FaBook className="me-2" />Story Time</h5>

@@ -17,6 +17,12 @@ export default function ParentDashboard() {
   const [reportData, setReportData] = useState({ progress: [], emotion: [] });
 
   const navigate = useNavigate();
+const getChildData = (name) => {
+    const progress = parseInt(localStorage.getItem(`progress_${name}`) || '0', 10);
+    const emotion = localStorage.getItem(`emotion_${name}`) || 'N/A';
+    const updated = localStorage.getItem(`updated_${name}`) || 'Never';
+    return { progress, emotion, updated };
+  };
 
   useEffect(() => {
     localStorage.setItem('children', JSON.stringify(children));
@@ -74,7 +80,7 @@ export default function ParentDashboard() {
           <ul className="dropdown-menu">
             <li><button className="dropdown-item" onClick={handleLogout}>Logout</button></li>
             {children.map((child, idx) => (
-              <li key={idx}><button className="dropdown-item" onClick={() => goToChildDashboard(child)}>{child}'s Dashboard</button></li>
+              <li key={idx}><button className="dropdown-item" onClick={() => navigate(`/child-dashboard?name=${encodeURIComponent(child)}`)}>{child}'s Dashboard</button></li>
             ))}
           </ul>
         </div>
@@ -134,7 +140,7 @@ export default function ParentDashboard() {
                       </div>
                       <small className="text-muted d-block mb-2">Last update: {lastUpdated}</small>
                       <div className="d-flex justify-content-between">
-                        <button className="btn btn-sm orangeButton text-white rounded-pill" onClick={() => goToChildDashboard(child)}>Login</button>
+                        <button className="btn btn-sm orangeButton text-white rounded-pill" onClick={() => navigate(`/child-dashboard?name=${encodeURIComponent(child)}`)}>Login</button>
                         <button className="btn btn-sm orangeButton text-white rounded-pill" onClick={() => showReport(child)}>View Report</button>
                         <button className="btn btn-sm btn-danger rounded-pill" onClick={() => removeChild(index)}>
                           <FaTrashAlt />
