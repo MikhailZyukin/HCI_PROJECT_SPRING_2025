@@ -64,7 +64,7 @@ export default function ParentDashboard() {
   };
 
   return (
-    <div className="container-fluid p-4 bg-light">
+    <div className="container-fluid p-5 bg-white">
       <div className="d-flex justify-content-between align-items-center mb-4">
         <img src={emotionLogo} alt="E-Motion Logo" width="120" height="120" />
         <div className="dropdown">
@@ -91,7 +91,7 @@ export default function ParentDashboard() {
               value={childName}
               onChange={(e) => setChildName(e.target.value)}
             />
-            <button className="btn btn-primary" onClick={addChild}>Add</button>
+            <button className="btn orangeButton text-white rounded-pill" onClick={addChild}>Add</button>
           </div>
         </div>
       </div>
@@ -113,7 +113,7 @@ export default function ParentDashboard() {
                   exit={{ opacity: 0, x: 50 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="card shadow-sm h-100">
+                  <div className="card shadow-sm border-0 rounded-4 h-100">
                     <div className="card-body">
                       <h5 className="card-title">{child}</h5>
                       <p className="card-text mb-1">
@@ -134,9 +134,9 @@ export default function ParentDashboard() {
                       </div>
                       <small className="text-muted d-block mb-2">Last update: {lastUpdated}</small>
                       <div className="d-flex justify-content-between">
-                        <button className="btn btn-sm btn-outline-primary" onClick={() => goToChildDashboard(child)}>Login</button>
-                        <button className="btn btn-sm btn-outline-secondary" onClick={() => showReport(child)}>View Report</button>
-                        <button className="btn btn-sm btn-outline-danger" onClick={() => removeChild(index)}>
+                        <button className="btn btn-sm orangeButton text-white rounded-pill" onClick={() => goToChildDashboard(child)}>Login</button>
+                        <button className="btn btn-sm orangeButton text-white rounded-pill" onClick={() => showReport(child)}>View Report</button>
+                        <button className="btn btn-sm btn-danger rounded-pill" onClick={() => removeChild(index)}>
                           <FaTrashAlt />
                         </button>
                       </div>
@@ -152,7 +152,7 @@ export default function ParentDashboard() {
       {showModal && (
         <div className="modal show d-block" tabIndex="-1" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
           <div className="modal-dialog modal-lg modal-dialog-centered">
-            <div className="modal-content">
+            <div className="modal-content rounded-4">
               <div className="modal-header">
                 <h5 className="modal-title">{reportChild}'s Report</h5>
                 <button type="button" className="btn-close" onClick={() => setShowModal(false)}></button>
