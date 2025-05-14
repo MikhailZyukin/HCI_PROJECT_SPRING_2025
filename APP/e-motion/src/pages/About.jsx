@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import emotionLogo from '../assets/img/emotionLogo.svg';
+import fml from '../assets/img/family.webp';
+
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -88,18 +90,21 @@ export default function Home() {
       {/* Main Content */}
       <div className='row'>
         <div className='col-sm-1'></div>
-        <div className="col-sm-4 text-white mt-5 mb-4 rounded-top rounded-bottom orangeElement"> 
-             <img src="/assets/img/emotionLogo.svg" alt="E-Motion Logo" width="60" height="60" />
+        <div className="col-sm-4 text-white mt-5 mb-4 "> 
+             <img className = "rounded-pill" src={fml} alt="E-Motion Logo" width="360" height="360" />
         </div>
         <div className='col-sm-2'></div>
         <div className="col-sm-4 text-white mt-5 mb-4 rounded-top rounded-bottom orangeElement"> 
-            <p className="lead text-center ">Helping children and parents grow emotionally — together</p>
-            <ul>
-            <li> Encourage emotional expression and parent-child bonding through simple games.</li>
-                <li> Split content by age for developmentally appropriate activities.</li>
-                <li> Focus on learnability, efficiency, and satisfaction — tested with real users.</li>
-                <li> Promote shared reflection with calm, engaging visuals and sound.</li>
-            </ul>
+            <h2 className="text-3xl font-bold mb-4">About the Project</h2>
+              <p className="text-lg mb-2">
+                This project was born from extensive research into emotional development, user-centered design, and human-computer interaction. Our goal is to create a safe, supportive platform where children can explore and understand their emotions, and where parents can participate meaningfully in their child’s growth.
+              </p>
+              <p className="text-lg mb-2">
+                Research activities included surveys, expert interviews, and iterative prototyping with families. The app uses a WIMP-style interface optimized for both desktop and touchscreens, ensuring accessibility across devices.
+              </p>
+              <p className="text-lg">
+                Our design philosophy centers on learnability, efficiency, memorability, and emotional resonance—supported by visual cues, consistent icons, and calming feedback. This is more than a game—it's a bridge for emotional connection.
+              </p>
         </div>
         <div className="col-sm-1"></div>
       </div>

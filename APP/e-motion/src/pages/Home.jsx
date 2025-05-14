@@ -102,7 +102,7 @@ export default function Home() {
               </svg>
             </div>
             <div className="carousel-item">
-              <svg className="d-block w-100" height="400" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <svg className="d-block w-100" height="400" xmlns="http://www.w3.rg/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
                 <rect width="100%" height="100%" fill="#999" />
                 <text x="50%" y="50%" fill="#eceeef" dy=".3em" textAnchor="middle">Third Slide Placeholder</text>
               </svg>
@@ -113,13 +113,15 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="container text-white mt-5 mb-4 rounded-top rounded-bottom orangeElement"> 
-        <p className="lead text-center ">Helping children and parents grow emotionally — together</p>
-        <ul>
-          <li> Encourage emotional expression and parent-child bonding through simple games.</li>
-          <li> Split content by age for developmentally appropriate activities.</li>
-          <li> Focus on learnability, efficiency, and satisfaction — tested with real users.</li>
-          <li> Promote shared reflection with calm, engaging visuals and sound.</li>
-        </ul>
+        <h1 className="text-5xl font-extrabold mb-6 tracking-tight">
+          Welcome to <span className="text-blue-600">E-Motion</span>
+        </h1>
+        <p className="text-lg text-gray-700 mb-4">
+          A child-centered, research-driven platform empowering emotional intelligence through play, interaction, and family connection.
+        </p>
+        <p className="text-md text-gray-600 mb-8">
+          Developed with input from child psychologists, educators, and real families, E-Motion blends games, dashboards, and guided reflections to build emotional awareness and strengthen the parent-child bond.
+        </p>
       </main>
 
       {/* Footer */}

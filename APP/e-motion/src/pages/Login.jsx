@@ -18,6 +18,8 @@ export default function Login() {
   };
 
   return (
+    
+
     <div className="container d-flex justify-content-center align-items-center vh-100">
       <div className="w-100" style={{ maxWidth: '400px' }}>
         <div className="text-center mb-4">
@@ -48,7 +50,7 @@ export default function Login() {
             />
           </div>
           {error && <div className="alert alert-danger">{error}</div>}
-          <button type="submit" className="btn text-white rounded-pill orangeButton w-100 d-flex justify-content-center">Sign Up</button>
+          <button type="submit" className="btn text-white rounded-pill orangeButton w-100 d-flex justify-content-center">Sign In</button>
         </form>
         <div className="text-center mt-3">
           <span>New to E-Motion? </span>

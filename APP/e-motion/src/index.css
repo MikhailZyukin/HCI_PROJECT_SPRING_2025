@@ -16,6 +16,8 @@ html, body, #root {
   background-color: #FF7A23;
   color: white;
   border: none;
+  padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 .orangeButton {

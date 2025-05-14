@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import emotionLogo from '../assets/img/emotionLogo.svg';
+import family from '../assets/img/fml.jpg';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -89,17 +90,19 @@ export default function Home() {
       <div className='row'>
         <div className="col-sm-1"></div>
         <div className="col-sm-4 text-white mt-5 mb-4 rounded-top rounded-bottom orangeElement"> 
-            <p className="lead text-center ">Helping children and parents grow emotionally — together</p>
-            <ul>
-            <li> Encourage emotional expression and parent-child bonding through simple games.</li>
-                <li> Split content by age for developmentally appropriate activities.</li>
-                <li> Focus on learnability, efficiency, and satisfaction — tested with real users.</li>
-                <li> Promote shared reflection with calm, engaging visuals and sound.</li>
-            </ul>
+          <h2 className="text-3xl font-bold mb-4 padding-top">Features</h2>
+          <ul className="list-disc list-inside space-y-2 text-lg">
+            <li>Gamified EI modules with drag-and-drop emotion matching</li>
+            <li>Emotion tracking dashboards for both child and parent</li>
+            <li>Personalized progress paths and content unlocking</li>
+            <li>Safe, intuitive interface with WCAG-compliant accessibility</li>
+            <li>Secure user roles: Child, Parent</li>
+            <li>Visual and auditory feedback to support engagement</li>
+          </ul>
         </div>
         <div className='col-sm-2'></div>
-        <div className="col-sm-4 text-white mt-5 mb-4 rounded-top rounded-bottom orangeElement"> 
-            <img src="/assets/img/emotionLogo.svg" alt="E-Motion Logo" width="60" height="60" />
+        <div className="col-sm-4 text-white mt-5 mb-4 rounded-pill"> 
+            <img className = "rounded-pill" src={family} alt="E-Motion Logo" width="360" height="360" />
         </div>
         <div className="col-sm-1"></div>
       </div>
