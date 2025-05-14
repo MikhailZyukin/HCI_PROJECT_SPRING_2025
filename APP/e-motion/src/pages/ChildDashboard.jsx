@@ -138,7 +138,6 @@ export default function ChildDashboard() {
             <div className="d-flex justify-content-around">
               <span className="badge bg-secondary">Level {Math.floor(progress / 20) + 1}</span>
               <span className="badge bg-secondary">{progress / 10} Games</span>
-              <span className="badge bg-success">Streak: {streak} 🔥</span>
             </div>
           </div>
         </div>
@@ -162,7 +161,7 @@ export default function ChildDashboard() {
           <div className="p-4 bg-white rounded-4 shadow-sm border border-light-subtle">
             <h5><FaRegCommentDots className="me-2" />Message from Parent</h5>
             <blockquote className="blockquote">
-              <p className="mb-1">"Great job on your games today! Let's talk about what you learned. ❤️"</p>
+              <p className="mb-1">"n/a"</p>
               <footer className="blockquote-footer">Mom <cite>2 hours ago</cite></footer>
             </blockquote>
           </div>

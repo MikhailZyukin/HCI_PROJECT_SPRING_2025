@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const EMOTIONS = [
@@ -21,7 +22,9 @@ export default function EmotionMatch() {
   const [matched, setMatched] = useState([]);
 
   const playSound = (type) => {
-    const audio = new Audio(type === 'correct' ? '/sounds/correct.mp3' : '/sounds/wrong.mp3');
+    const audio = new Audio(type === 'correct'
+      ? '/assets/sfx/correct.mp3'
+      : '/assets/sfx/wrong.mp3');
     audio.play();
   };
 
@@ -31,6 +34,17 @@ export default function EmotionMatch() {
       playSound('correct');
       setMatched([...matched, label]);
       setScore(prev => prev + 1);
+      if (matched.length + 1 === EMOTIONS.length) {
+        const completeSound = new Audio('/assets/sfx/completed.mp3');
+        completeSound.play();
+        setTimeout(() => {
+          const currentProgress = parseInt(localStorage.getItem(`progress_${childName}`) || '0', 10);
+          const newProgress = Math.min(currentProgress + 10, 100);
+          localStorage.setItem(`progress_${childName}`, newProgress.toString());
+          localStorage.setItem(`progressDate_${childName}`, getToday());
+          navigate(`/child-dashboard?name=${encodeURIComponent(childName)}`);
+        }, 1500);
+      }
     } else {
       playSound('wrong');
     }
