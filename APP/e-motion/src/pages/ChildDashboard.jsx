@@ -19,9 +19,13 @@ export default function ChildDashboard() {
   const params = new URLSearchParams(location.search);
   const childName = params.get('name') || 'Your Child';
 
+  const getToday = () => new Date().toISOString().split('T')[0];
+
   const [progress, setProgress] = useState(() => {
+    const lastDate = localStorage.getItem(`progressDate_${childName}`);
+    const today = getToday();
     const stored = localStorage.getItem(`progress_${childName}`);
-    return stored ? parseInt(stored, 10) : 0;
+    return lastDate === today && stored ? parseInt(stored, 10) : 0;
   });
 
   const [emotion, setEmotion] = useState(() => {
@@ -29,30 +33,44 @@ export default function ChildDashboard() {
   });
 
   useEffect(() => {
-    localStorage.setItem(`progress_${childName}`, progress);
-  }, [progress, childName]);
+    const storedChildren = JSON.parse(localStorage.getItem('children') || '[]');
+    if (!storedChildren.includes(childName)) {
+      localStorage.setItem('children', JSON.stringify([...storedChildren, childName]));
+    }
+  }, [childName]);
 
   useEffect(() => {
     if (emotion) {
+      const history = JSON.parse(localStorage.getItem(`emotionHistory_${childName}`) || '[]');
+      history.push({ emotion, time: new Date().toLocaleString() });
+      localStorage.setItem(`emotionHistory_${childName}`, JSON.stringify(history));
       localStorage.setItem(`emotion_${childName}`, emotion);
     }
   }, [emotion, childName]);
 
   useEffect(() => {
-    // Store child name in persistent list if not already present
-    const storedChildren = JSON.parse(localStorage.getItem('children') || '[]');
-    if (!storedChildren.includes(childName)) {
-      storedChildren.push(childName);
-      localStorage.setItem('children', JSON.stringify(storedChildren));
+    if (progress > 0) {
+      const today = getToday();
+      const progressLog = JSON.parse(localStorage.getItem(`progressHistory_${childName}`) || '[]');
+      progressLog.push({ progress, time: new Date().toLocaleString() });
+      localStorage.setItem(`progressHistory_${childName}`, JSON.stringify(progressLog));
+      localStorage.setItem(`progress_${childName}`, progress);
+      localStorage.setItem(`progressDate_${childName}`, today);
     }
-  }, [childName]);
+  }, [progress, childName]);
+
+  useEffect(() => {
+    if (progress > 0 || emotion) {
+      localStorage.setItem(`updated_${childName}`, new Date().toLocaleString());
+    }
+  }, [progress, emotion, childName]);
 
   const handleQuit = () => {
     navigate('/parent-dashboard');
   };
 
   const handleGameComplete = () => {
-    setProgress((prev) => Math.min(prev + 10, 100));
+    setProgress(prev => Math.min(prev + 10, 100));
   };
 
   const handleEmotionSelect = (selected) => {
